@@ -79,6 +79,8 @@ body .product-name {
 /*Product Image*/
 .detail .image img {
   display: block;
+  border: 5px solid #FDAB1C;
+  border-radius: 10px;
   margin-left: auto;
   margin-right: auto;
   height: auto;

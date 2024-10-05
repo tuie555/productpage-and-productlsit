@@ -46,7 +46,13 @@
           <img src="../assets/ratingStarIcon.png" alt="Star" width="15" height="15">
         </button>
       </div>
-      <script> function handleSendMessageButtonClick() {
+      <script> 
+
+      const sellerNameForSendingMessage = '';
+
+      sellerNameForSendingMessage = document.getElementsByClassName("sellerName");
+
+      function handleSendMessageButtonClick() {
         ThunkableWebviewerExtension.postMessage('sendMessage');
       }
 
