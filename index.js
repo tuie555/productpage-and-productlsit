@@ -92,13 +92,13 @@ app.get('/PullPro', (req, res) => {
 
 app.post('/upload-image', imageUpload.single('Image'), async (req, res) => {
   try {
-    const image = req.file;
+    const imagexd = req.file;
     const imageUrl = `http://x526d.3bbddns.com:19544/picture/${image.filename}`;
     uploadedImage = imageUrl;
      res.json({ imageUrl });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Error creating product' });
+    res.status(4500).json({ message: 'Error creating product' });
   }
 });
 
