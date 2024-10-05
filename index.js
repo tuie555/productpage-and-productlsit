@@ -47,22 +47,49 @@ app.use(express.json());
     });
   });
 
-  app.post('/add-product', imageUpload.single('Image'), async (req, res) => {
-    try {
-      const { name, price, category, details, seller } = req.body;
-      imageUrl = uploadedImage;
-      
-      const query = {
-        text: `INSERT INTO products (product_name, price, category, details, image_url, seller) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
-        values: [name, price, category, details, imageUrl, seller]
-      };
-      const result = await pool.query(query);
-      res.json(result.rows[0]);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Error creating product' });
-    }
+  app.get('/events', (req, res) => {
+    res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive'
+    });
+    setInterval(() => {
+      res.write(':\n\n');
+    }, 10 * 1000);
+  
+    // When a new card is added, send an event to the client
+    app.on('new_card', (eventString) => {
+    res.write(eventString);
   });
+});
+
+app.post('/add-product', imageUpload.single('Image'), async (req, res) => {
+  try {
+    const { name, price, category, details, seller } = req.body;
+    imageUrl = uploadedImage;
+    
+    const query = {
+      text: `INSERT INTO products (product_name, price, category, details, image_url, seller) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+      values: [name, price, category, details, imageUrl, seller]
+    };
+    const result = await pool.query(query);
+    const newCard = result.rows[0];
+
+    // Call the addCard function to send an event to the client
+    const addCard = (card) => {
+      const event = { type: 'new_card', card };
+      const eventString = `data: ${JSON.stringify(event)}\n\n`;
+      // Send the event to all connected clients
+      app.emit('new_card', eventString);
+      
+    };
+    addCard(newCard);
+    res.status(201).send({ message: 'Product created successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error creating product' });
+  }
+});
   
 let uploadedImage = '';
 

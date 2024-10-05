@@ -10973,6 +10973,8 @@ textarea.form-control-lg {
 }
 
 .card img {
+  border: 2px #FDAB1C;
+  border-radius: 10px;
   width: 100%;
   height: 75px;
   object-fit: cover;

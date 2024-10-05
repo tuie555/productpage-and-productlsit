@@ -1,3 +1,17 @@
+body {
+  background-color: #F0EFFE;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  background-color: #FFFFFF;
+  height: 280px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 body { 
     background-color: #D9D2E2;
 }
@@ -6,44 +20,48 @@ body {
 /*-------------------------------------------*/
 body .container .back-button {
   position: relative;
-  right: 15px;
-  margin: 5px;
-  background-color: #696AAD;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(to bottom, #FFA07A, #FFC107);
   color: #FFFFFF;
   border: none;
-  border-radius: 10px;
   padding: 10px 20px;
   cursor: pointer;
 }
 
-body .container .refresh-page {
+.refresh-page {
   position: relative;
-  right: 15px;
-  margin: 5px;
-  background-color: #696AAD;
-  color: #FFFFFF;
+  float: right;
+  left: 20px;
+  bottom: 20px;
+  background:linear-gradient(to bottom, #696AAD, #8C87DA);
+  width: 35px;
+  height: 35px;
   border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
+  padding: 0;
   cursor: pointer;
 }
 
-.sendMessageButton button {
-  float: right;
-  margin: 5px;
-  background-color: #696AAD;
+body .container .refresh-page img {
+  filter: invert(100%) brightness(100%) contrast(100%) sepia(100%) saturate(0%) hue-rotate(0deg);
   color: #FFFFFF;
+  width: 20px;
+  height: 20px;
   border: none;
-  border-radius: 10px;
-  padding: 10px 20px;
   cursor: pointer;
 }
+
 
 .reviewButton button {
+  text-align: center;
   position: relative;
-  float: right;
+  width: 280px;
+  height: 40px;
+  right: 2.5px;
+  bottom: 60px;
   margin: 5px;
   background-color: #696AAD;
+  background: linear-gradient(to bottom, #FFC107, #FFA07A);
   color: #FFFFFF;
   border-radius: 10px;
   padding: 10px 20px;
@@ -52,24 +70,22 @@ body .container .refresh-page {
   border: none;
 }
 
+.reviewButton button:hover {
+  background: linear-gradient(to bottom, #FFA07A, #FFC107);
+}
+
 .reviewButton img {
   margin: 0.5px;
   position: relative;
   top: 3px;
 }
 
-.sendMessageButton button svg {
-  background-color: #696AAD;
-  color: #FFFFFF;
-  width: auto;
-  height: 10px;
-  margin-left: 5px;
-  cursor: pointer;
-  border: none;
-}
+
 /*-------------------------------------------*/
 
 body .product-name {
+  position: relative;
+  bottom: 20px;
   margin: 15px;
   font-size: 20px;
   font-weight: 500;
@@ -78,12 +94,14 @@ body .product-name {
 
 /*Product Image*/
 .detail .image img {
+  position: relative;
+  bottom: 20px;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 0;
+  margin-right: 0;
   height: auto;
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
   object-fit: contain;
 }
 
@@ -96,52 +114,124 @@ body .name {
   font-size: 18px;
 }
 
-body .description {
-  position: relative;
-  margin: 15px;
-  font-weight: 350;
-  font-size: 16;
-}
-
 body .price {
+  text-align: left;
   position: relative;
+  top: 10px;
   margin: 15px;
   font-weight: 500;
-  font-size: 16;
+  font-size: 20px;
+  color: #696AAD;
 }
 
 body .priceBackground {
+  flex: block;
+  float: left;
   position: relative;
   z-index: -1;
   height: 40px;
-  width: 75px;
-  background-color: #D9D2E2;
+  width: 100%;
+  background-color: #F0EFFE;
+}
+
+body .sellerBackground {
+  position: relative;
+  bottom: 25px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /*Seller Icon*/
 body .sellerIcon img {
+  position: relative;
+  top: 15px;
+  left: 5px;
+  margin: 5px;
+  display: flex;
   border: 5px solid #FDAB1C;
   border-radius: 50%;
   height: 50px;
   width: 50px;
 }
 
-body .sellerIcon .sellerName text {
+body .content .sellerIcon .sellerName {
   position: relative;
-  top: 50px;
-  font-size: 18px;
-  font-weight: 300;
-
+  width: 100px;
+  bottom: 55px;
+  left: 70px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 400;
 }
 
-/*Background shape*/
-body .content .squareBackground {
+body .content .sellerIcon .sellerCredit {
   position: relative;
+  bottom: 40px;
+  width: 75px;
+  left: 80px;
+  font-size: 10px;
+}
+
+.sendMessageButton button svg {
+  color: #FFFFFF;
+  width: auto;
+  height: 10px;
+  margin-left: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.sendMessageButton button {
+  position: relative;
+  bottom: 55px;
+  left: 5px;
+  float: right;
+  margin: 5px;
+  background: linear-gradient(to bottom, #696AAD, #8c87da);
+  color: #FFFFFF;
+  border-radius: 10px;
+  width: 120px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 10px;
+}
+/*Background shape*/
+  body .content .squareBackground {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  flex: block;
+  position: relative;
+  bottom: 30px;
+  right: 5px;
   margin: 5px;
   z-index: -2;
   height: auto;
   min-height: 275px;
-  border-radius: 10px;
   width: 100%;
   background-color: #F0EFFE;
+}
+
+body .content .detailBackground {
+  position: relative;
+  top: 15px;
+  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px; /* adjust font size */
+  width: 175;
+  height: fit-content;
+  color: #333; /* adjust text color */
+  text-align: justify; /* justify text */
+  margin-bottom: 10px; /* add some margin below */
+}
+
+body .description {
+  position: relative;
+  bottom: 20px;
+  right: 20px;
+  margin: 15px;
+  font-weight: 350;
+  font-size: 16;
 }
