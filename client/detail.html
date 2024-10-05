@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js" type="text/javascript"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/styleDetail.css">
+</head>
+<body>
+  <div class="container">
+    <button class="back-button" onclick="location.href='../index.html'">Back</button> 
+    <button class="refresh-page" onclick="location.reload()">Refresh Page</button>
+    <div class="product-name"></div> 
+    <div class="detail"> 
+        <div class="image">
+              <img src="" alt="">
+            </div>
+          </div>
+        </div>
+    <div class="content">
+      <div>
+        <div class="squareBackground">
+          <h1 class="name"></h1>
+          <div class="description"></div>
+          <div class="priceBackground">
+            <div class="price"></div>
+          </div>
+        </div>
+          <div class="sellerIcon">
+            <img src="../assets/UserIcon.png" alt="Seller Icon"></img>
+            <div class="sellerName">SELLER NAME</div>
+          </div>
+        <div class="sendMessageButton">
+          <button>Send Message
+          <span>
+            <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+            </svg>
+          </span>
+        </button>
+        </div>
+        <div class="reviewButton"> <button>
+          <img src="../assets/ratingStarIcon.png" alt="Star" width="15" height="15">
+          Review product
+          <img src="../assets/ratingStarIcon.png" alt="Star" width="15" height="15">
+        </button>
+      </div>
+      <script> function handleSendMessageButtonClick() {
+        ThunkableWebviewerExtension.postMessage('sendMessage');
+      }
+
+      const sendMessageButton = document.querySelector('.sendMessageButton button');
+      sendMessageButton.addEventListener('click', handleSendMessageButtonClick);
+
+          function handleReviewButtonClick() {
+        ThunkableWebviewerExtension.postMessage('reviewSeller');
+      }
+
+      const reviewButton = document.querySelector('.reviewButton button');
+      reviewButton.addEventListener('click', handleReviewButtonClick);
+        </script>
+      </div>
+
+    </div>
+  </div>
+<script src= ./js/script.js></script>
+</body>
+</html>
