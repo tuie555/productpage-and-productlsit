@@ -50,9 +50,8 @@
 
       const sellerNameForSendingMessage = '';
 
-      sellerNameForSendingMessage = document.getElementsByClassName("sellerName");
-
       function handleSendMessageButtonClick() {
+        sellerNameForSendingMessage = document.getElementsByClassName("sellerName");
         ThunkableWebviewerExtension.postMessage('sendMessage');
       }
 
