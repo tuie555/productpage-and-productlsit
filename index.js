@@ -93,7 +93,7 @@ app.get('/PullPro', (req, res) => {
 app.post('/upload-image', imageUpload.single('Image'), async (req, res) => {
   try {
     const image = req.file;
-    const imageUrl = `http://x526d.3bbddns.com:19544/picture/${image.filename}`;
+    const imageUrl = `http://x526d.3bbddns.com/${image.filename}`;
     uploadedImage = imageUrl;
      res.json({ imageUrl });
   } catch (error) {
