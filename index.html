@@ -51,8 +51,8 @@ function loadCards() {
         cardElement.innerHTML = `
           <img src="${card.image}" alt="...">
           <div class="card-body">
-            <h5 class="fw-bolder">${card.name}</h5>
-            <p>${card.category}</p>
+            <h1 class="fw-bolder">${card.name}</h1>
+            <p1>${card.category}</p1>
             <p>${card.price}</p>
           </div>
         `;
@@ -151,11 +151,12 @@ eventSource.onerror = (error) => {
 
 // Receive message from ThunkableWebviewerExtension
 ThunkableWebviewerExtension.receiveMessage(function(message) {
-  selectedCategory = message;
-  filterCards(selectedCategory);
+    selectedCategory = message;
+    filterCards(selectedCategory);
 });
             
         </script>
     </section>
 </body>
 </html>
+

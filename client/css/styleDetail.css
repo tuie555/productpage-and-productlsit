@@ -1,48 +1,49 @@
 body {
-  background-color: #F0EFFE;
+  margin: 0;
+  padding: 0;
+  background-color: #D9D2E2;
   font-family: Arial, sans-serif;
 }
 
 .container {
+  position: relative;
   background-color: #FFFFFF;
-  height: 280px;
+  height: auto;
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-body { 
-    background-color: #D9D2E2;
+  border-radius: 10px;
 }
 
 /* Buttons */
 /*-------------------------------------------*/
-body .container .back-button {
-  position: relative;
-  bottom: 20px;
-  right: 20px;
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
   background: linear-gradient(to bottom, #FFA07A, #FFC107);
   color: #FFFFFF;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .refresh-page {
-  position: relative;
-  float: right;
-  left: 20px;
-  bottom: 20px;
-  background:linear-gradient(to bottom, #696AAD, #8C87DA);
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(to bottom, #696AAD, #8C87DA);
   width: 35px;
   height: 35px;
   border: none;
   padding: 0;
   cursor: pointer;
+  border-radius: 50%;
 }
 
-body .container .refresh-page img {
+.refresh-page img {
   filter: invert(100%) brightness(100%) contrast(100%) sepia(100%) saturate(0%) hue-rotate(0deg);
   color: #FFFFFF;
   width: 20px;
@@ -51,15 +52,13 @@ body .container .refresh-page img {
   cursor: pointer;
 }
 
-
 .reviewButton button {
-  text-align: center;
+  font-size: 10px;
   position: relative;
-  width: 280px;
-  height: 40px;
-  right: 2.5px;
-  bottom: 60px;
-  margin: 5px;
+  bottom: 75px;
+  float: right;
+  width: 135px;
+  height: 30px;
   background-color: #696AAD;
   background: linear-gradient(to bottom, #FFC107, #FFA07A);
   color: #FFFFFF;
@@ -75,163 +74,142 @@ body .container .refresh-page img {
 }
 
 .reviewButton img {
-  margin: 0.5px;
-  position: relative;
-  top: 3px;
+  width: 10px;
+  height: 10px;
 }
-
 
 /*-------------------------------------------*/
 
-body .product-name {
-  position: relative;
-  bottom: 20px;
-  margin: 15px;
-  font-size: 20px;
-  font-weight: 500;
+.product-name {
+  margin: 30px auto;
   text-align: center;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-/*Product Image*/
 .detail .image img {
-  position: relative;
-  bottom: 20px;
   display: block;
-  margin-left: 0;
-  margin-right: 0;
   height: auto;
-  width: 100%;
-  max-width: 300px;
+  max-width: 100%;
   object-fit: contain;
+  margin: 20px auto;
+  border-radius: 10px;
 }
 
-body .name {
-  position: relative;
-  top: 10px;
+.name {
   text-align: center;
-  margin: 10px;
-  font-weight: 500;
   font-size: 18px;
+  font-weight: bold;
+  margin: 10px;
 }
 
-body .price {
+.price {
   text-align: left;
-  position: relative;
-  top: 10px;
-  margin: 15px;
-  font-weight: 500;
   font-size: 20px;
+  font-weight: bold;
   color: #696AAD;
+  margin: 0px;
 }
 
-body .priceBackground {
-  flex: block;
-  float: left;
-  position: relative;
-  z-index: -1;
-  height: 40px;
-  width: 100%;
+.priceBackground {
   background-color: #F0EFFE;
-}
-
-body .sellerBackground {
-  position: relative;
-  bottom: 25px;
-  background-color: #FFFFFF;
+  padding: 20px;
+  border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/*Seller Icon*/
-body .sellerIcon img {
-  position: relative;
-  top: 15px;
-  left: 5px;
-  margin: 5px;
+.sellerBackground {
+  background-color: #FFFFFF;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.sellerIcon .Icon img {
   display: flex;
   border: 5px solid #FDAB1C;
   border-radius: 50%;
   height: 50px;
   width: 50px;
+  margin: 5px;
 }
 
-body .content .sellerIcon .sellerName {
-  position: relative;
-  width: 100px;
-  bottom: 55px;
-  left: 70px;
-  text-align: left;
+.sellerName {
   font-size: 12px;
-  font-weight: 400;
+  font-weight: bold;
+  margin: 5px;
 }
 
-body .content .sellerIcon .sellerCredit {
-  position: relative;
-  bottom: 40px;
-  width: 75px;
-  left: 80px;
+.sellerCredit {
   font-size: 10px;
+  margin: 5px;
+}
+
+.sendMessageButton button {
+  position: relative;
+  left: 10px;
+  bottom: 50px;
+  background: linear-gradient(to bottom, #696AAD, #8c87da);
+  color: #FFFFFF;
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  float: right;
+  margin: 10px;
 }
 
 .sendMessageButton button svg {
   color: #FFFFFF;
+  position: relative;
+  top: 2px;
   width: auto;
-  height: 10px;
+  height: 15px;
   margin-left: 5px;
   cursor: pointer;
   border: none;
 }
 
-.sendMessageButton button {
+.squareBackground {
   position: relative;
-  bottom: 55px;
-  left: 5px;
-  float: right;
-  margin: 5px;
-  background: linear-gradient(to bottom, #696AAD, #8c87da);
-  color: #FFFFFF;
-  border-radius: 10px;
-  width: 120px;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-size: 10px;
-}
-/*Background shape*/
-  body .content .squareBackground {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  flex: block;
-  position: relative;
-  bottom: 30px;
-  right: 5px;
-  margin: 5px;
-  z-index: -2;
-  height: auto;
-  min-height: 275px;
-  width: 100%;
+  bottom: 10px;
   background-color: #F0EFFE;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-body .content .detailBackground {
-  position: relative;
-  top: 15px;
+.detailBackground {
   background-color: #FFFFFF;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  font-size: 16px; /* adjust font size */
-  width: 175;
-  height: fit-content;
-  color: #333; /* adjust text color */
-  text-align: justify; /* justify text */
-  margin-bottom: 10px; /* add some margin below */
+  font-size: 16px;
+  color: #333;
+  text-align: justify;
+  margin-bottom: 10px;
 }
 
-body .description {
-  position: relative;
-  bottom: 20px;
-  right: 20px;
-  margin: 15px;
+.description {
+  font-size: 16px;
   font-weight: 350;
-  font-size: 16;
+  margin: 15px;
+}
+
+.remove-product-button {
+  flex: block;
+  position: absolute;
+  top: 0;
+  right: 35px;
+  display: block;
+  float: right;
+  padding: 10px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #FF3737, #FF6969);
+  border: none;
+  border-radius: 10px;
+  color: #FFFFFF;
 }

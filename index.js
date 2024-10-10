@@ -69,12 +69,12 @@ app.post('/add-product', imageUpload.single('Image'), async (req, res) => {
     imageUrl = uploadedImage;
     
     const query = {
-      text: `INSERT INTO products (product_name, price, category, details, image_url, seller) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
+      text: `
+      INSERT INTO products (product_name, price, category, details, image_url, seller) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *`,
       values: [name, price, category, details, imageUrl, seller]
     };
     const result = await pool.query(query);
     const newCard = result.rows[0];
-
     // Call the addCard function to send an event to the client
     const addCard = (card) => {
       const event = { type: 'new_card', card };
@@ -134,6 +134,22 @@ app.get('/images/:filename', (req, res) => {
   const filename = req.params.file;
   const filePath = `./picture/${filename}`;
   res.sendFile(filePath);
+});
+
+// Remove product's row from table
+app.delete('/remove-product/:id', async (req, res) => {
+  const productId = req.params.id;
+  const query = {
+    text: `DELETE FROM products WHERE product_id = $1`,
+    values: [productId]
+  };
+  try {
+    await pool.query(query);
+    res.status(200).send({ message: 'Product removed successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Error removing product' });
+  }
 });
 
 app.listen(2000, () => {

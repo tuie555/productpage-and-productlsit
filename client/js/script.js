@@ -57,6 +57,14 @@ function showDetail(productId) {
         <div class="price">$${product.price}</div>
       `;
       listProduct.appendChild(newProduct);
+
+        // Check if the seller has already added 5 products
+        const sellerProducts = products.filter(p => p.seller === product.seller);
+        if (sellerProducts.length >= 5) {
+        alert("Error: This seller has already added 5 products.");
+        listProduct.removeChild(newProduct); // remove the newly added product
+      }
     }
-  }
+  } 
 }
+
